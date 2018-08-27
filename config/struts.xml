@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts  
+Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">  
+<struts>  
+	<package name="login" extends="struts-default">
+		<action name="loginpage"  class= "org.anish.jdbc.rentalCarDB" method="signInCheck" > 
+			<result name="true">searchCars.html</result> 
+		    <result name="false">error.html</result> 
+		</action>	
+	</package>  
+</struts>   
+<!--
+	<interceptors>
+			<interceptor name="log" class="jeeTutorial.struts.interceptor.LoggingIntercept"/>
+	</interceptors>		
+	<action name="checkUserid" 
+           class="com.mystruts.jsonRequest">
+       	   <result type="json" />
+    </action>
+-->

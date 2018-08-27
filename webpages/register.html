@@ -1,0 +1,27 @@
+	<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="register.css">
+		<script type="text/javascript" src="register.js"></script>
+	</head>
+	<body>
+		<div class="forming">
+			<h1 style="text-align:center">Register</h1>
+			<form action="register" method="POST">
+				<div>
+					<input type="text" name="firstName" id="fname" placeholder="First Name"> &nbsp;<input type="text" name="lastName" id="lname" placeholder="Last Name" onblur="names()"> </br>
+					<span id="ajaxcall"></span></br>
+					<input type="text" name="userid" id="uid" placeholder="user id"> &nbsp;</br>
+					Email : <input type="email" name="email" id="emailid" onblur="onEmail()"><span id="emailajax"></span></br>
+					DOB : <input type="date" name="date" id="dateid" > </br>
+					male : <input type="radio" name="sex" value="male">&nbsp; Female :<input type="radio" name="sex" value="female"></br></br>
+					<input type="text" name="mobile" id="mobileid" placeholder="mobile Number"></br>
+					password : <input type="password" name="password" id="pwd" onblur="onPassword()"></br>
+					<span id="pwdspan"></span><br></br>
+					Retype-password : <input type="password" name="retype" id="repwd"></br>
+					<input type="submit" name="submit" id="sbmt">
+				</div>
+			</form>
+		</div>
+	</body>
+	
+</html>

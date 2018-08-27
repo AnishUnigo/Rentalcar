@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app>
+ 
+   <!--   <filter>
+		<filter-name>struts2</filter-name>
+		<filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>struts2</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping> 
+	 -->	
+	<servlet>
+		<servlet-name>searchServlet</servlet-name>
+		<servlet-class>org.anish.controller.searchServlets</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>searchServlet</servlet-name>
+		<url-pattern>/searchLocation</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>submit</servlet-name>
+		<servlet-class>org.anish.controller.searchSubmit</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>submit</servlet-name>
+		<url-pattern>/Submit</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Register</servlet-name>
+		<servlet-class>org.anish.controller.registerServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Register</servlet-name>
+		<url-pattern>/register</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>searchcars</servlet-name>
+		<servlet-class>org.anish.controller.searchCarServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>searchcars</servlet-name>
+		<url-pattern>/searchCars</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>selectCarServlet</servlet-name>
+		<servlet-class>org.anish.controller.SelectCarServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>selectCarServlet</servlet-name>
+		<url-pattern>/selectCars</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>paymentProcess</servlet-name>
+		<servlet-class>org.anish.controller.PaymentServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>paymentProcess</servlet-name>
+		<url-pattern>/payment</url-pattern>
+	</servlet-mapping>
+	<listener>
+        <listener-class>
+                com.sun.xml.ws.transport.http.servlet.WSServletContextListener
+        </listener-class>
+    </listener>
+    <servlet>
+        <servlet-name>searchcarssoap</servlet-name>
+        <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
+     <!--  <load-on-startup>1</load-on-startup> -->
+    </servlet>
+    <servlet-mapping>
+		<servlet-name>searchcarssoap</servlet-name>
+		<url-pattern>/searchCarsSoap</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>logoutServlet</servlet-name>
+		<servlet-class>org.anish.controller.logoutServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>logoutServlet</servlet-name>
+		<url-pattern>/logout</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>scheduleList</servlet-name>
+		<servlet-class>org.anish.controller.ManageScheduleServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>scheduleList</servlet-name>
+		<url-pattern>/scheduleList</url-pattern>
+	</servlet-mapping>
+	<servlet>
+	<servlet-name>printName</servlet-name>
+		<servlet-class>org.anish.controller.ManageScheduleServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>printName</servlet-name>
+		<url-pattern>/printName</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>ByName</servlet-name>
+		<servlet-class>org.anish.controller.displayByName</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ByName</servlet-name>
+		<url-pattern>/displayByName</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>Schedulechange</servlet-name>
+		<servlet-class>org.anish.controller.manipulateServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Schedulechange</servlet-name>
+		<url-pattern>/Schedulechange</url-pattern>
+	</servlet-mapping>
+    <!-- <session-config>
+        <session-timeout>120</session-timeout>
+    </session-config> -->
+    
+    
+</web-app>

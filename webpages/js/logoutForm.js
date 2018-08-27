@@ -1,0 +1,35 @@
+ 
+function userLogout(){
+				var xmlHttp= GetXmlHttpObject();
+				var username=document.getElementById("logoutuser").value;
+				/*var username=user;*/
+				var url="logout";
+				console.log("usernamne"+username);
+				xmlHttp.open("POST",url,true);
+				xmlHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded"); 
+				xmlHttp.send("username"+username);
+				
+				xmlHttp.onreadystatechange  = function (){
+					if (xmlHttp.readyState == 4) {
+						 if(xmlHttp.status == 200) {
+						  var response= xmlHttp.responseText; 
+						 	console.log(":"+response+":");
+						 	window.location.replace("http://localhost:4040/RentalCar/index.jsp#");
+						}
+						 else {  alert("ajax call failed");}}
+					
+				};
+			}
+
+
+function GetXmlHttpObject()
+			{ 
+				var xmlHttp=null;
+			try { 
+			  xmlHttp=new XMLHttpRequest(); }
+			catch (e)
+			 { 
+			  try{  xmlHttp=new ActiveXObject("Msxml2.XMLHTTP");    }
+			  catch (e) {  xmlHttp=new ActiveXObject("Microsoft.XMLHTTP");    }
+			 } return xmlHttp;
+			}

@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<project name="RentalCar" default="myWebApp" basedir="." > 
+	<property name="java.program.dir" value = "./src" />	
+	<property name="java.classes.dir" value = "./classes" />
+	<property name="web.pages.dir" value = "./webpages" />
+	<property name="config.dir" value = "./config" />
+	<property name="lib.dir" value = "./lib" />
+	<property name="soapLib.dir" value = "./soapLib" />
+	
+	<target name="cleanup">
+		<delete dir="${java.classes.dir}"></delete>
+		<mkdir dir="${java.classes.dir}"/>
+	</target>
+
+	<target name="myOwnCompiler" depends="cleanup">
+		<path id="project.class.path">
+			<fileset dir="${lib.dir}">
+				<include name="*.jar"/>
+			</fileset>
+		</path>
+		<javac includeantruntime="false"  classpathref="project.class.path"  destdir="${java.classes.dir}" debug="true">
+			<src path="${java.program.dir}" />
+		</javac>
+	</target>
+	
+	<target name="myWebApp" depends="myOwnCompiler">
+			<war destfile="./RentalCar.war" webxml="${config.dir}/web.xml">
+				<webinf file="${config.dir}/sun-jaxws.xml"></webinf> 	
+				<fileset dir="${web.pages.dir}"/>
+					<classes dir="${java.classes.dir}"/>
+					<classes file="./log4j.properties"/>
+			      	<lib dir="${lib.dir}"/>
+					<lib dir="${soapLib.dir}"/>
+				<!-- Hibernate config change -->
+				<classes dir="${config.dir}" includes="hibernate.cfg.xml"/>
+			    <!-- struts config change  -->
+				<classes dir="${config.dir}" includes="struts.xml"/>
+			</war>	
+		<copy todir="E:\j2eesoftware\apache-tomcat-8.5.8\webapps"
+					file="RentalCar.war" overwrite="true">
+							
+			</copy>
+		</target>
+</project>

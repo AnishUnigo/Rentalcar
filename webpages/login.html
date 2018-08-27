@@ -1,0 +1,65 @@
+
+<html>
+<title>login</title>
+<script >
+	function onFocusOut(){
+		var xmlHttp = GetXmlHttpObject();
+		var loginuserid=document.getElementById("userid").value;
+		var url="register";
+		
+		xmlHttp.open("POST",url,true);
+		xmlHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded"); 
+		xmlHttp.send("loginuserid="+loginuserid);
+		
+		xmlHttp.onreadystatechange  = function (){
+			if (xmlHttp.readyState == 4) {
+				 if(xmlHttp.status == 200) {
+				  var response= xmlHttp.responseText; 
+				 	console.log(":"+response+":");
+					if(loginuserid==""){
+						document.getElementById("userlabel").innerHTML="User Id is must";
+						document.getElementById("userlabel").style.color="red";
+					}else if(response=="failed"){
+						console.log("response : "+response);
+						document.getElementById("userlabel").innerHTML="User Id not matched";
+					} 	 else{
+						document.getElementById("userlabel").innerHTML="";
+					}
+				}
+				 else {  alert("ajax call failed");}}
+			
+		};
+	}
+	 function GetXmlHttpObject()
+		{ 
+			var xmlHttp=null;
+		try { 
+		  xmlHttp=new XMLHttpRequest(); }
+		catch (e)
+		 { 
+		  try{  xmlHttp=new ActiveXObject("Msxml2.XMLHTTP");    }
+		  catch (e) {  xmlHttp=new ActiveXObject("Microsoft.XMLHTTP");    }
+		 } return xmlHttp;
+		}
+</script>
+<body>
+<div>
+<form action="register" method="post">
+<table>
+	<tr>
+		<td>Userid :<input type="text" name="user" id="userid" onblur="onFocusOut()"></td>
+		<td> <label id="userlabel"></label></td>
+	</tr>
+	<tr>
+		<td>Password : <input type="text" name="password" id="txt2"></td>
+		<td><label id="passwordlabel"></label></td>
+	</tr>
+	<tr></tr>
+		<input type="submit" value="sbmt">
+</table>
+</form>
+</div>
+
+
+</body>
+</html>

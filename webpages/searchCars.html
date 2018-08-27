@@ -1,0 +1,46 @@
+<html>
+<title>find cars</title>
+<style>
+	input[type=text], select {
+				width: 30%;
+				padding: 12px 20px;
+				margin: 5px 0;
+				display: inline-block;
+				border: 1px solid #ccc;
+				border-radius: 4px;
+				box-sizing: border-box;
+			}
+	input[type=submit] {
+				width: 30%;
+				background-color: #4CAF50;
+				color: white;
+				padding: 14px 20px;
+				margin: 5px 0;
+				border: none;
+				border-radius: 4px;
+				cursor: pointer;
+			}
+</style>
+<script>
+	
+
+</script>
+<body>
+	<form action="searchCars" method="post">
+		<div>
+			
+			<input type="text" name="searchCars" id="searchcarsid" placeholder="find cars"></br>
+			<label id="ajaxcars"></label></br>
+			
+			<input type="text" name="cartype" id="cartypesid" placeholder="car type"></br>
+			<label id="ajaxcartypes"></label></br>
+			
+			<input type="text" name="fueltype" id="fueltypeid" placeholder="fuel type"></br>
+			<label id="ajaxfueltypes"></label></br>
+			<input type="submit" name="search" id="search" onclick="doescarExist()"></br>
+			
+		</div>
+	</form>
+	<p id="response"></p>
+</body>
+</html>
